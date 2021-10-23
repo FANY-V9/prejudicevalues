@@ -1,0 +1,228 @@
+<head>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+<link href='style.css' rel='stylesheet' type='text/css'>
+<title>PrejudiceValues Results</title>
+<link rel="icon" type="x-icon" href="icon.png">
+<link rel="shortcut icon" type="x-icon" href="icon.png">
+<meta charset="utf-8">
+<script>
+  version = "Test Edition #1" //Remember to update this before making changes to the test itself!
+</script>
+</head>
+<body>
+<h1>PrejudiceValues</h1>
+<hr>
+
+<h1>Results</h1>
+
+<h2>Racism Against Blacks: <span class="weight-300" id="blac-label"></span></h2>
+<div class="axis">
+    <img id="img-blac" src="value_images/equality.svg" height="128pt"/>
+    <div class="bar pre0" id="bar-blac"><div class="text-wrapper" id="blac"></div></div>
+    <div class="bar pre1" id="bar-nblac"><div class="text-wrapper" id="nblac"></div></div>
+    <img id="img-nblac" src="value_images/markets.svg" height="128pt"/>
+</div>
+<h2>Racism Against Asians: <span class="weight-300" id="asia-label"></span></h2>
+<div class="axis">
+    <img id="img-asia" src="value_images/nation.svg" height="128pt"/>
+    <div class="bar pre0" id="bar-asia"><div class="text-wrapper" id="asia"></div></div>
+    <div class="bar pre1" id="bar-nasia"><div class="text-wrapper" id="nasia"></div></div>
+    <img id="img-nasia" src="value_images/globe.svg" height="128pt"/>
+</div>
+<h2>Xenophobic Axis: <span class="weight-300" id="xeno-label"></span></h2>
+<div class="axis">
+    <img id="img-xeno" src="value_images/liberty.svg" height="128pt"/>
+    <div class="bar pre0" id="bar-xeno"><div class="text-wrapper" id="xeno"></div></div>
+    <div class="bar pre1" id="bar-nxeno"><div class="text-wrapper" id="nxeno"></div></div>
+    <img id="img-nxeno" src="value_images/authority.svg" height="128pt"/>
+</div>
+<h2>Misoginy Axis: <span class="weight-300" id="miso-label"></span></h2>
+<div class="axis">
+    <img id="img-miso" src="value_images/tradition.svg" height="128pt"/>
+    <div class="bar pre0" id="bar-miso"><div class="text-wrapper" id="miso"></div></div>
+    <div class="bar pre1" id="bar-nmiso"><div class="text-wrapper" id="nmiso"></div></div>
+    <img id="img-nmiso" src="value_images/progress.svg" height="128pt"/>
+</div>
+<h2>Homophobia Axis: <span class="weight-300" id="homo-label"></span></h2>
+<div class="axis">
+    <img id="img-homo" src="value_images/tradition.svg" height="128pt"/>
+    <div class="bar pre0" id="bar-homo"><div class="text-wrapper" id="homo"></div></div>
+    <div class="bar pre1" id="bar-nhomo"><div class="text-wrapper" id="nhomo"></div></div>
+    <img id="img-nhomo" src="value_images/progress.svg" height="128pt"/>
+</div>
+<h2>Total Prejudice Percentage: (don't completed yet)</h2>
+<p>You can send these results by copying and pasting the URL at the top of the page or using the image below.</p>
+<hr/>
+<img src="" id="banner">
+<button class="button" onclick="location.href='index.html';">Back</button> <br>
+<!-- Website visit statistics - no personal information is collected! -->
+<noscript><div class="statcounter"><a title="web stats"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="//c.statcounter.com/11325211/0/fd9f0659/1/" alt="web
+stats"></a></div></noscript>
+<script>
+    function getQueryVariable(variable)
+    {
+           var query = window.location.search.substring(1)
+           var vars = query.split("&")
+           for (var i=0;i<vars.length;i++) {
+                   var pair = vars[i].split("=")
+                   if(pair[0] == variable) {return pair[1]}
+           }
+           return(NaN);
+    }
+
+    function setBarValue(name, value) {
+        innerel = document.getElementById(name)
+        outerel = document.getElementById("bar-" + name)
+        outerel.style.width = (value + "%")
+        innerel.innerHTML = (value + "%")
+        if (innerel.offsetWidth + 20 > outerel.offsetWidth) {
+            innerel.style.visibility = "hidden"
+        }
+    }
+
+    blacArray = ["Totally Agaisnt Blacks","A bit Racist","Middling Racist","Racist","Really Racist","Extreme Racist","Nothing Agaisnt Blacks"]
+    asiaArray = ["Totally Agaisnt Asians","A bit Racist","Middling Racist","Racist","Really Racist","Extreme Racist","Nothing Agaisnt Asians"]
+    xenoArray = ["Totally Agaisnt Foreign","Extreme Xenophobic","Really Xenophobic","Xenophobic","Middling Xenophobic","A bit Xenophobic","Non-Xenophobic"]
+    misoArray = ["Totally Agaisnt Womans","Extreme misoginy","Really Misoginy","Misoginy","Middling Misoginy","A bit Misoginy","Non-Misoginy"]
+    homoArray = ["Totally Agaisnt Homossexuals","Extreme Homophobic","Really Homophobic","Homophobic","Middling Homophobic","A bit Homophobic","Non-Homophobic"]
+
+    function setLabel(val,ary) {
+        if (val > 100) { return "WTF BRO?" } else
+        if (val > 90) { return ary[0] } else
+        if (val > 75) { return ary[1] } else
+        if (val > 60) { return ary[2] } else
+        if (val >= 40) { return ary[3] } else
+        if (val >= 25) { return ary[4] } else
+        if (val >= 10) { return ary[5] } else
+        if (val >= 0) { return ary[6] } else
+        	{return "Reverse Prejudice"}
+    }
+
+    blac  = getQueryVariable("a")
+    asia     = getQueryVariable("b")
+    xeno   = getQueryVariable("c")
+    miso  = getQueryVariable("d")
+    homo  = getQueryVariable("e")
+    nblac    = (100 - blac).toFixed(1)
+    nasia     = (100 - asia).toFixed(1)
+    nxeno = (100 -  xeno).toFixed(1)
+    nmiso = (100 - miso).toFixed(1)
+    nhomo = (100 - homo).toFixed(1)
+
+    setBarValue("blac", blac)
+    setBarValue("nblac", nblac)
+    setBarValue("asia", asia)
+    setBarValue("nasia", nasia)
+    setBarValue("xeno", xeno)
+    setBarValue("nxeno", nxeno)
+    setBarValue("miso", miso)
+    setBarValue("nmiso", nmiso)
+    setBarValue("homo", homo)
+    setBarValue("nhomo", nhomo)
+
+    document.getElementById("blac-label").innerHTML = setLabel(blac, blacArray)
+    document.getElementById("asia-label").innerHTML = setLabel(asia, asiaArray)
+    document.getElementById("xeno-label").innerHTML = setLabel(xeno, xenoArray)
+    document.getElementById("miso-label").innerHTML = setLabel(miso, misoArray)
+    document.getElementById("homo-label").innerHTML = setLabel(homo, homoArray)
+
+
+    function createImage(src, x, y, w, h) {
+        img = new Image ()
+        img.src = src
+        img.onLoad = function() {
+            ctx.drawImage(img, x, y, w, h)
+        }
+    }
+
+    window.onload = function() {
+        var c = document.createElement("canvas")
+        var ctx = c.getContext("2d")
+        c.width = 800;
+        c.height = 650;
+        ctx.fillStyle = "#EEEEEE"
+        ctx.fillRect(0,0,800,650);
+
+        img = document.getElementById("img-blac")
+        ctx.drawImage(img, 20, 170, 100, 100);
+        img = document.getElementById("img-nblac")
+        ctx.drawImage(img, 680, 170, 100, 100)
+        img = document.getElementById("img-asia")
+        ctx.drawImage(img, 20, 290, 100, 100)
+        img = document.getElementById("img-nasia")
+        ctx.drawImage(img, 680, 290, 100, 100)
+        img = document.getElementById("img-xeno")
+        ctx.drawImage(img, 20, 410, 100, 100)
+        img = document.getElementById("img-nxeno")
+        ctx.drawImage(img, 680, 410, 100, 100)
+        img = document.getElementById("img-miso")
+        ctx.drawImage(img, 20, 530, 100, 100)
+        img = document.getElementById("img-nmiso")
+        ctx.drawImage(img, 680, 530, 100, 100)
+        img = document.getElementById("img-homo")
+        ctx.drawImage(img, 20, 650, 100, 100)
+        img = document.getElementById("img-homo")
+        ctx.drawImage(img, 680, 650, 100, 100)
+
+        ctx.fillStyle="#222222"
+        ctx.fillRect(120, 180, 560, 80)
+        ctx.fillRect(120, 300, 560, 80)
+        ctx.fillRect(120, 420, 560, 80)
+        ctx.fillRect(120, 540, 560, 80)
+        ctx.fillRect(120, 650, 560, 80)
+        ctx.fillStyle="#f44336"
+        ctx.fillRect(120, 184, 5.6*blac -2, 72)
+        ctx.fillStyle="#00897b"
+        ctx.fillRect(682-5.6*nblac, 184, 5.6*nblac -2, 72)
+        ctx.fillStyle="#ff9800"
+        ctx.fillRect(120, 304, 5.6*nasia -2, 72)
+        ctx.fillStyle="#03a9f4"
+        ctx.fillRect(682-5.6*asia, 304, 5.6*asia -2, 72)
+        ctx.fillStyle="#ffeb3b"
+        ctx.fillRect(120, 424, 5.6*xeno -2, 72)
+        ctx.fillStyle="#3f51b5"
+        ctx.fillRect(682-5.6*nxeno, 424, 5.6*nxeno -2, 72)
+        ctx.fillStyle="#8bc34a"
+        ctx.fillRect(120, 544, 5.6*miso -2, 72)
+        ctx.fillStyle="#9c27b0"
+        ctx.fillRect(682-5.6*nmiso, 544, 5.6*nmiso -2, 72)
+        ctx.fillStyle="#222222"
+        ctx.fillRect(120, 654, 5.6*homo -2, 72)
+        ctx.fillStyle="#9c27b0"
+        ctx.fillRect(682-5.6*nhomo, 654, 5.6*nhomo -2, 72)
+        ctx.fillStyle="#222222"
+        ctx.font="700 80px Montserrat"
+        ctx.textAlign="left"
+        ctx.fillText("prejudicevalues", 20, 90)
+        ctx.font="50px Montserrat"
+
+        ctx.textAlign="left"
+        if (blac  > 30) {ctx.fillText(blac + "%", 130, 237.5)}
+        if (asia     > 30) {ctx.fillText(asia + "%", 130, 357.5)}
+        if (xeno   > 30) {ctx.fillText(xeno + "%", 130, 477.5)}
+        if (miso > 30) {ctx.fillText(miso + "%", 130, 597.5)}
+        if (homo > 30) {ctx.fillText(homo + "%", 130, 707.5)}
+        ctx.textAlign="right"
+        if (nblac    > 30) {ctx.fillText(nblac + "%", 670, 237.5)}
+        if (nasia     > 30) {ctx.fillText(nasia + "%", 670, 357.5)}
+        if (nxeno > 30) {ctx.fillText(nxeno + "%", 670, 477.5)}
+        if (nmiso  > 30) {ctx.fillText(nmiso + "%", 670, 597.5)}
+        if (nhomo > 30) {ctx.fillText(nhomo + "%", 130, 707.5)}
+
+        ctx.font="300 30px Montserrat"
+        ctx.fillText("prejudicevalues.github.io", 780, 60)
+		ctx.fillText(version, 780, 90)
+        ctx.textAlign="center"
+        ctx.fillText("Racism Agaisnt Blacks: " + document.getElementById("blac-label").innerHTML, 400, 175)
+        ctx.fillText("Racism Agaisnt Asians: " + document.getElementById("asia-label").innerHTML, 400, 295)
+        ctx.fillText("Xenophobic Axis: " + document.getElementById("xeno-label").innerHTML, 400, 415)
+        ctx.fillText("Misoginy Axis: " + document.getElementById("miso-label").innerHTML, 400, 535)
+        ctx.fillText("Homophobia Axis: " + document.getElementById("homo-label").innerHTML, 400, 655)
+
+        document.getElementById("banner").src = c.toDataURL();
+    }
+    </script>
+</body>
