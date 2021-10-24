@@ -21,46 +21,31 @@
 <hr>
 <h2 style="text-align:center;" id="question-number">Loading...</h2>
 <p class="question" id="question-text"></p>
-<button class="button stronglyAgree" onclick="next_question( 1.0)">Strongly Agree</button> <br>
-<button class="button agree" onclick="next_question( 0.5)">Agree</button> <br>
-<button class="button neutral" onclick="next_question( 0.0)">Neutral/Unsure</button> <br>
-<button class="button disagree" onclick="next_question(-0.5)">Disagree</button> <br>
-<button class="button stronglyDisagree" onclick="next_question(-1.0)">Strongly Disagree</button> <br>
+<button class="button stronglyAgree" onclick="next_question( 1.0)">Totally Agree</button> <br>
+<button class="button agree" onclick="next_question( 0.5)">agree 75%</button> <br>
+<button class="button neutral" onclick="next_question( 0.0)">agree 50%</button> <br>
+<button class="button disagree" onclick="next_question(-0.5)">agree 25%</button> <br>
+<button class="button stronglyDisagree" onclick="next_question(-1.0)">Totally Disagree</button> <br>
 <button class="small_button" onclick="prev_question()" id="back_button">Back</button>
 <button class="small_button_off" id="back_button_off">Back</button><br>
 
-<!-- Website visit statistics - no personal information is collected! -->
-<script type="text/javascript">
-var sc_project=11325211;
-var sc_invisible=1;
-var sc_security="fd9f0659";
-var scJsHost = (("https:" == document.location.protocol) ?
-"https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script>
-<noscript><div class="statcounter"><a title="web stats"
-href="http://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="//c.statcounter.com/11325211/0/fd9f0659/1/" alt="web
-stats"></a></div></noscript>
-
 <!-- JavaScript for the test itself -->
 <script>
-    var max_econ, max_dipl, max_govt, max_scty; // Max possible scores
-    max_econ = max_dipl = max_govt = max_scty = 0;
-    let econ_array = new Array(questions.length);
-    let dipl_array = new Array(questions.length);
-    let govt_array = new Array(questions.length);
-    let scty_array = new Array(questions.length);
+    var max_blac, max_asia, max_xeno, max_miso, max_homo; // Max possible scores
+    max_blac = max_asia = max_xeno = max_miso = max_homo = 0;
+    let blac_array = new Array(questions.length);
+    let asia_array = new Array(questions.length);
+    let xeno_array = new Array(questions.length);
+    let miso_array = new Array(questions.length);
+    let homo_array = new Array(questions.length);
     var qn = 0; // Question number
     init_question();
     for (var i = 0; i < questions.length; i++) {
-        max_econ += Math.abs(questions[i].effect.econ)
-        max_dipl += Math.abs(questions[i].effect.dipl)
-        max_govt += Math.abs(questions[i].effect.govt)
-        max_scty += Math.abs(questions[i].effect.scty)
+        max_blac += Math.abs(questions[i].effect.econ)
+        max_asia += Math.abs(questions[i].effect.dipl)
+        max_xeno += Math.abs(questions[i].effect.govt)
+        max_miso += Math.abs(questions[i].effect.scty)
+        max_homo += Math.abs(questions[i].effect.scty)
     }
     function init_question() {
         document.getElementById("question-text").innerHTML = questions[qn].question;
@@ -76,10 +61,11 @@ stats"></a></div></noscript>
     }
 
     function next_question(mult) {
-        econ_array[qn] = mult*questions[qn].effect.econ
-        dipl_array[qn] = mult*questions[qn].effect.dipl
-        govt_array[qn] = mult*questions[qn].effect.govt
-        scty_array[qn] = mult*questions[qn].effect.scty
+        blac_array[qn] = mult*questions[qn].effect.blac
+        asia_array[qn] = mult*questions[qn].effect.asia
+        xeno_array[qn] = mult*questions[qn].effect.xeno
+        miso_array[qn] = mult*questions[qn].effect.miso
+        homo_array[qn] = mult*questions[qn].effect.homo
         qn++;
         if (qn < questions.length) {
             init_question();
@@ -101,15 +87,17 @@ stats"></a></div></noscript>
     }
 
     function results() {
-        let final_econ = econ_array.reduce((a, b) => a + b, 0)
-        let final_dipl = dipl_array.reduce((a, b) => a + b, 0)
-        let final_govt = govt_array.reduce((a, b) => a + b, 0)
-        let final_scty = scty_array.reduce((a, b) => a + b, 0)
+        let final_blac = blac_array.reduce((a, b) => a + b, 0)
+        let final_asia = asia_array.reduce((a, b) => a + b, 0)
+        let final_xeno = xeno_array.reduce((a, b) => a + b, 0)
+        let final_miso = miso_array.reduce((a, b) => a + b, 0)
+        let final_homo = homo_array.reduce((a, b) => a + b, 0)
         location.href = `results.html`
-            + `?e=${calc_score(final_econ,max_econ)}`
-            + `&d=${calc_score(final_dipl,max_dipl)}`
-            + `&g=${calc_score(final_govt,max_govt)}`
-            + `&s=${calc_score(final_scty,max_scty)}`
+            + `?a=${calc_score(final_blac,max_blac)}`
+            + `&b=${calc_score(final_asia,max_asia)}`
+            + `&c=${calc_score(final_xeno,max_xeno)}`
+            + `&d=${calc_score(final_miso,max_miso)}`
+            + `&e=${calc_score(final_homo,max_homo)}`
     }
 </script>
 </body>
