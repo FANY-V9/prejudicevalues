@@ -17,7 +17,7 @@
 <script type="application/javascript"
         src="questions.js">
 </script>
-<h1>8values</h1>
+<h1>PrejudiceValues</h1>
 <hr>
 <h2 style="text-align:center;" id="question-number">Loading...</h2>
 <p class="question" id="question-text"></p>
@@ -41,11 +41,11 @@
     var qn = 0; // Question number
     init_question();
     for (var i = 0; i < questions.length; i++) {
-        max_blac += Math.abs(questions[i].effect.econ)
-        max_asia += Math.abs(questions[i].effect.dipl)
-        max_xeno += Math.abs(questions[i].effect.govt)
-        max_miso += Math.abs(questions[i].effect.scty)
-        max_homo += Math.abs(questions[i].effect.scty)
+        max_blac += Math.abs(questions[i].effect.blac)
+        max_asia += Math.abs(questions[i].effect.asia)
+        max_xeno += Math.abs(questions[i].effect.xeno)
+        max_miso += Math.abs(questions[i].effect.miso)
+        max_homo += Math.abs(questions[i].effect.homo)
     }
     function init_question() {
         document.getElementById("question-text").innerHTML = questions[qn].question;

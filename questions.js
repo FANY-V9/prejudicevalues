@@ -5,7 +5,7 @@ questions = [ //This question are just for tests (add more after) and the prejud
             "asia": 0,
             "xeno": 0,
             "miso": 0,
-            "homo": 10
+            "homo": 0
         }
     },
     {"question": "All asians are CHINA!.",
@@ -44,45 +44,6 @@ questions = [ //This question are just for tests (add more after) and the prejud
             "miso": 0,
             "homo": 10
         
-        }
-    }
-];
-
-questions = [
-    {
-        "question": "We should open our borders to immigration.",
-        "effect": {
-            "econ": 0,
-            "dipl": 10,
-            "govt": 10,
-            "scty": 0
-        }
-    },
-    {
-        "question": "Governments should be as concerned about foreigners as they are about their own citizens.",
-        "effect": {
-            "econ": 0,
-            "dipl": 10,
-            "govt": 0,
-            "scty": 0
-        }
-    },
-    {
-        "question": "All people - regardless of factors like culture or sexuality - should be treated equally.",
-        "effect": {
-            "econ": 10,
-            "dipl": 10,
-            "govt": 10,
-            "scty": 10
-        }
-    },
-    {
-        "question": "It is important that we further my group's goals above all others.",
-        "effect": {
-            "econ": -10,
-            "dipl": -10,
-            "govt": -10,
-            "scty": -10
         }
     }
 ];
