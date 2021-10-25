@@ -1,5 +1,5 @@
 html {
-    background-color: #bbbbbb;
+    background-color: #830000;
     padding: 0px;
     scroll-behavior: smooth;
 }
@@ -15,8 +15,8 @@ body {
     border-width: 20px;
 }
 p {
-    color: #444444;
-    font-family: 'Roboto', sans-serif;
+    color: #830000;
+    font-family: 'Teko', sans-serif;
     font-size: 18.5pt;
     line-height: 1.15;
     margin: 4pt;
@@ -30,19 +30,19 @@ p.value {
     font-size: 24pt;
     line-height: 2.11666656px;
     letter-spacing: 0.03em;
-    font-family: 'Montserrat';
+    font-family: 'Teko', sans-serif;;
 }
 
 p.axis_name {
     margin-top: 50px;
     color: #333333;
     font-size: 19pt;
-    font-family: 'Montserrat';
+    font-family: 'Teko', sans-serif;;
 }
 p.question {
     margin: 16pt auto;
     color: #333333;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Teko', sans-serif;;
     font-weight: normal;
     width: 70%;
     min-width: 500pt;
@@ -58,8 +58,8 @@ p.question {
 
 }
 h1 {
-    color: #222222;
-    font-family: 'Montserrat', sans-serif;
+    color: #500000;
+    font-family: 'Teko', sans-serif;;
     font-size: 72pt;
     text-align: center;
     line-height: 72pt;
@@ -67,8 +67,8 @@ h1 {
     margin-bottom: 0pt;
 }
 h2 {
-    color: #333333;
-    font-family: 'Montserrat', sans-serif;
+    color: #500000;
+    font-family: 'Teko', sans-serif;
     font-size: 34pt;
     line-height: 36pt;
     margin-top: 12pt;
@@ -83,7 +83,7 @@ a {
 }
 div.center {
     background-color: #eeeeee;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Teko', sans-serif;
     border-radius: 8pt;
     padding: 6pt;
     color: white;
@@ -108,7 +108,7 @@ div.quadcolumn {
 div.axis_name {
     color: #333333;
     font-size: 19pt;
-    font-family: 'Montserrat';
+    font-family: 'Teko', sans-serif;
     display: inline-block;
     padding-bottom: 8.65pt;
 }
@@ -122,8 +122,8 @@ div.axis_name {
     text-align: center;
 }
 .button {
-    background-color: #2196f3;
-    font-family: 'Montserrat', sans-serif;
+    background-color: #830000;
+    font-family: 'Teko', sans-serif;
     border: none;
     border-radius: 8pt;
     color: white;
@@ -151,7 +151,7 @@ div.axis_name {
 
 .small_button, .small_button_off {
     background-color: #333;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Teko', sans-serif;
     border: none;
     border-radius: 8pt;
     color: white;
@@ -253,3 +253,9 @@ span.weight-300 {
     margin-left: auto;
     margin-right: auto;
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
