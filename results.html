@@ -1,5 +1,5 @@
 <head>
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap" rel="stylesheet">
 <link href='style.css' rel='stylesheet' type='text/css'>
 <title>PrejudiceValues Results</title>
 <link rel="icon" type="x-icon" href="icon.png">
@@ -142,9 +142,9 @@ stats"></a></div></noscript>
         var c = document.createElement("canvas")
         var ctx = c.getContext("2d")
         c.width = 800;
-        c.height = 650;
+        c.height = 760;
         ctx.fillStyle = "#EEEEEE"
-        ctx.fillRect(0,0,800,650);
+        ctx.fillRect(0,0,800,760);
 
         img = document.getElementById("img-blac")
         ctx.drawImage(img, 20, 170, 100, 100);
@@ -194,10 +194,10 @@ stats"></a></div></noscript>
         ctx.fillStyle="#9c27b0"
         ctx.fillRect(682-5.6*nhomo, 654, 5.6*nhomo -2, 72)
         ctx.fillStyle="#222222"
-        ctx.font="700 80px Montserrat"
+        ctx.font="700 80px Teko"
         ctx.textAlign="left"
         ctx.fillText("prejudicevalues", 20, 90)
-        ctx.font="50px Montserrat"
+        ctx.font="50px Teko"
 
         ctx.textAlign="left"
         if (blac  > 30) {ctx.fillText(blac + "%", 130, 237.5)}
@@ -212,7 +212,7 @@ stats"></a></div></noscript>
         if (nmiso  > 30) {ctx.fillText(nmiso + "%", 670, 597.5)}
         if (nhomo > 30) {ctx.fillText(nhomo + "%", 130, 707.5)}
 
-        ctx.font="300 30px Montserrat"
+        ctx.font="300 30px Teko"
         ctx.fillText("prejudicevalues.github.io", 780, 60)
 		ctx.fillText(version, 780, 90)
         ctx.textAlign="center"
